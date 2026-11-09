@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="A tiny, local-first library for saving and finding reusable code snippets.">
+  <title>Snippet Vault — Your code, organized</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Snippet Vault home"><span class="brand-mark">⌘</span> snippet<span>vault</span></a>
+      <span class="local-badge"><i></i> Saved on this device</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">YOUR PERSONAL CODE LIBRARY</p>
+      <h1>Keep the good bits.<br><span>Find them fast.</span></h1>
+      <p class="intro">A simple home for the commands, patterns, and snippets you use again and again.</p>
+      <div class="stats">
+        <div><strong id="total-count">0</strong><span>SNIPPETS</span></div>
+        <div><strong id="category-count">0</strong><span>CATEGORIES</span></div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Snippet library">
+      <div class="toolbar">
+        <label class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search snippets..." aria-label="Search snippets"></label>
+        <button class="primary" id="add-open">＋ New snippet</button>
+      </div>
+      <div class="filters" id="filters" aria-label="Filter by category"></div>
+      <div class="section-heading"><h2>Your collection</h2><span id="result-count"></span></div>
+      <div class="grid" id="snippet-grid"></div>
+      <p class="empty hidden" id="empty">No snippets found. Try another search or add your first one.</p>
+    </section>
+    <footer>Built for focused developers <span>·</span> No account. No server. Just your browser.</footer>
+  </main>
+
+  <dialog id="snippet-dialog">
+    <form id="snippet-form">
+      <div class="dialog-head"><div><p class="eyebrow">ADD TO YOUR LIBRARY</p><h2>New snippet</h2></div><button type="button" class="icon-btn" id="close-dialog" aria-label="Close">✕</button></div>
+      <label>Title<input name="title" maxlength="60" required placeholder="e.g. Start a local server"></label>
+      <div class="form-row">
+        <label>Category<select name="category"><option>JavaScript</option><option>Python</option><option>Git</option><option>HTML/CSS</option><option>Terminal</option><option>Other</option></select></label>
+        <label>Language<input name="language" maxlength="20" placeholder="e.g. bash"></label>
+      </div>
+      <label>Code<textarea name="code" rows="6" required placeholder="Paste your code here..."></textarea></label>
+      <label>Short note <span class="muted">(optional)</span><input name="note" maxlength="120" placeholder="When should you use it?"></label>
+      <div class="dialog-actions"><button type="button" class="secondary" id="cancel-dialog">Cancel</button><button class="primary" type="submit">Save snippet</button></div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
